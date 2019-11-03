@@ -5,7 +5,7 @@ const signIn = (credentials, history) => dispatch => {
   //dispatch(actions.setLoading(true));
   api.signIn(credentials).then(res => {
     dispatch(actions.signIn(res.data));
-    history.push('talleres');
+    history.push('1pagina');
   });
 };
 

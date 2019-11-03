@@ -10,7 +10,7 @@ export const RoutesComponent = props => {
     children.forEach(el => arr.push(el));
     return arr;
   }, []);
-  console.log(props);
+
   return (
     <Switch>
       {linksDashboard.map(link => (

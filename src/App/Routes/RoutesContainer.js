@@ -11,7 +11,6 @@ const mapDispatchToProps = { ...operations };
 
 class RoutesConnected extends React.Component {
   render() {
-    console.log(this.props);
     return <RoutesComponent {...this.props} />;
   }
 }
