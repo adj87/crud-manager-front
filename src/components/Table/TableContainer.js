@@ -19,8 +19,9 @@ class Table extends React.Component {
     const prefix = this.props;
     return (
       <TableComponent
-      //setData={this.props.setData(prefix)}
-      //setPage={this.props.setPage(prefix)}
+        {...this.props}
+        //setData={this.props.setData(prefix)}
+        //setPage={this.props.setPage(prefix)}
       />
     );
   }
