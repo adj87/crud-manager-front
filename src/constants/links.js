@@ -22,18 +22,18 @@ export const linkItems = {
             id: '1seccion',
             children: [
                 {
-                    id: '1pagina',
-                    textIcon: '1 pagina',
-                    route: '/1pagina',
+                    id: 'Example',
+                    textIcon: 'Example',
+                    route: '/example',
                     icon: <HomeIcon />,
                     //permissions: 'ROLE_TECNICO',
                     showInMenu: true,
                     component: <ExampleContainer />
                 },
                 {
-                    id: '2pagina',
-                    textIcon: '2 pagina',
-                    route: '/2pagina',
+                    id: 'Example2',
+                    textIcon: 'Example 2',
+                    route: '/example2',
                     icon: <AccessAlarm />,
                     //permissions: 'ROLE_TECNICO',
                     showInMenu: true,

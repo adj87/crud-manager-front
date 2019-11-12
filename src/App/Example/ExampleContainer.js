@@ -16,7 +16,7 @@ class ExampleContainer extends React.Component {
     render() {
         const columns = [
             {
-                name: () => 'Nombre',
+                name: 'Nombre',
                 selector: 'nombre',
                 sortable: true
             },
@@ -28,7 +28,7 @@ class ExampleContainer extends React.Component {
                 button: true
             }
         ];
-        return <Table prefix={SECTION_EXAMPLE} api={api.fetchDataExample} data={this.props.data} columns={columns} />;
+        return <Table prefix={SECTION_EXAMPLE} api={api.fetchDataExample} data={this.props.data} columns={columns} title={'Title'} />;
     }
 }
 export default connect(mapStateToProps, null)(ExampleContainer);
