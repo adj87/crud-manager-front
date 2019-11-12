@@ -37,15 +37,11 @@ export class TableComponent extends Component {
   }; */
 
     render() {
-        const { data, columns, pagination } = this.props;
+        const { prefix, api, ...dataTableProps } = this.props;
 
         return (
             <DataTable
-                title="Users"
-                columns={columns}
-                data={data}
-                pagination={pagination}
-                paginationDefaultPage={3}
+                {...dataTableProps}
                 /*         progressPending={loading}
         pagination
         paginationServer

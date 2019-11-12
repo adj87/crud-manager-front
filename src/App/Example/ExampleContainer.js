@@ -23,12 +23,11 @@ class ExampleContainer extends React.Component {
             {
                 name: 'id',
                 selector: 'id',
-                sortable: true,
-                right: true,
-                button: true
+                sortable: true
             }
         ];
-        return <Table prefix={SECTION_EXAMPLE} api={api.fetchDataExample} data={this.props.data} columns={columns} title={'Title'} />;
+
+        return <Table prefix={SECTION_EXAMPLE} api={api.fetchDataExample} data={this.props.data} columns={columns} title={'Example'} pagination />;
     }
 }
 export default connect(mapStateToProps, null)(ExampleContainer);

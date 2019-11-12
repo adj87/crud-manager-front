@@ -21,8 +21,8 @@ class Table extends React.Component {
     }
 
     render() {
-        const { columns, pagination, paginationDefaultPage, data, title } = this.props;
-        return <DataTable title={title} columns={columns} data={data} pagination={pagination} paginationDefaultPage={paginationDefaultPage}></DataTable>;
+        const { prefix, api, ...datatableProps } = this.props;
+        return <DataTable {...datatableProps}></DataTable>;
     }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Table));

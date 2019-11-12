@@ -19,7 +19,7 @@ export const linkItems = {
     ],
     dashboard: [
         {
-            id: '1seccion',
+            id: 'First Section',
             children: [
                 {
                     id: 'Example',
@@ -37,7 +37,7 @@ export const linkItems = {
                     icon: <AccessAlarm />,
                     //permissions: 'ROLE_TECNICO',
                     showInMenu: true,
-                    component: <div>2 pagina</div>
+                    component: <div>Example 2</div>
                 }
             ]
         }
