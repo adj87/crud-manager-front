@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 const ValidationSchema = Yup.object().shape({
-  email: Yup.string().email('PLATFORMS_FORM_FIELD_PLATFORM_ERROR_VALIDATION')
-  /*   serviceLevel: Yup.number().typeError(
+    email: Yup.string().email('PLATFORMS_FORM_FIELD_PLATFORM_ERROR_VALIDATION')
+    /*   serviceLevel: Yup.number().typeError(
     t('PLATFORMS_FORM_FIELD_SERVICE_ERROR_VALIDATION')
   ),
   environment: Yup.number().typeError(
@@ -14,8 +14,8 @@ const ValidationSchema = Yup.object().shape({
     1,
     t('PLATFORMS_FORM_FIELD_SELECTED_TECHNOLOGIES_ERROR_VALIDATION')
   ) */
-  // estado: Yup.bool().required(
-  //     t('USER_CALENDAR_TASK_FORM_ERROR_MESSAGE_REQUIRED_FIELD')
-  // ),
+    // estado: Yup.bool().required(
+    //     t('USER_CALENDAR_TASK_FORM_ERROR_MESSAGE_REQUIRED_FIELD')
+    // ),
 });
 export default ValidationSchema;

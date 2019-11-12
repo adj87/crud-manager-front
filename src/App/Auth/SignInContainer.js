@@ -5,17 +5,12 @@ import { SignInComponent } from './SignInComponent';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => ({
-  user: state.authentication.user
+    user: state.authentication.user
 });
 const mapDispatchToProps = { ...operations };
 class SignInConnected extends React.Component {
-  render() {
-    return <SignInComponent {...this.props} />;
-  }
+    render() {
+        return <SignInComponent {...this.props} />;
+    }
 }
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(SignInConnected)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignInConnected));

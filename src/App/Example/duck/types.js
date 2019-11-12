@@ -1,7 +1,7 @@
-const SECTION_EXAMPLE = 'EXAMPLE_';
+export const SECTION_EXAMPLE = 'EXAMPLE_';
 
 const SET_DATA = SECTION_EXAMPLE + 'SET_DATA';
 
 export default {
-  SET_DATA
+    SET_DATA
 };

@@ -5,19 +5,14 @@ import { withRouter } from 'react-router-dom';
 import { operations } from './duck';
 
 const mapStateToProps = state => ({
-  user: state.authentication.user
+    user: state.authentication.user
 });
 
 const mapDispatchToProps = { hallo: a => console.log(a), ...operations };
 
 class PaperbaseConnected extends React.Component {
-  render() {
-    return <Paperbase {...this.props} />;
-  }
+    render() {
+        return <Paperbase {...this.props} />;
+    }
 }
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(PaperbaseConnected)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PaperbaseConnected));

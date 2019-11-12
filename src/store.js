@@ -1,19 +1,13 @@
 import { combineReducers, createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import signInReducer from './App/Auth/duck';
-import tableReducer from './components/Table/duck/reducers';
+import exampleReducer from './App/Example/duck';
 
 const rootReducer = combineReducers({
-  authentication: signInReducer,
-  example: tableReducer('example')
+    authentication: signInReducer,
+    example: exampleReducer
 });
 
 const middlewares = [thunk];
 
-export const store = createStore(
-  rootReducer,
-  compose(
-    applyMiddleware(...middlewares),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
-);
+export const store = createStore(rootReducer, compose(applyMiddleware(...middlewares), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));

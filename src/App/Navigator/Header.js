@@ -21,85 +21,74 @@ import { USERS_IMAGES_URL } from '../../constants/general';
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
 const styles = theme => ({
-  secondaryBar: {
-    zIndex: 0
-  },
-  menuButton: {
-    marginLeft: -theme.spacing(1)
-  },
-  iconButtonAvatar: {
-    padding: 4
-  },
-  link: {
-    textDecoration: 'none',
-    color: lightColor,
-    '&:hover': {
-      color: theme.palette.common.white
+    secondaryBar: {
+        zIndex: 0
+    },
+    menuButton: {
+        marginLeft: -theme.spacing(1)
+    },
+    iconButtonAvatar: {
+        padding: 4
+    },
+    link: {
+        textDecoration: 'none',
+        color: lightColor,
+        '&:hover': {
+            color: theme.palette.common.white
+        }
+    },
+    button: {
+        borderColor: lightColor
     }
-  },
-  button: {
-    borderColor: lightColor
-  }
 });
 
 function Header(props) {
-  const { classes, onDrawerToggle, user } = props;
-  const userImgUrl = `${USERS_IMAGES_URL}${user.img_url}`;
+    const { classes, onDrawerToggle, user } = props;
+    const userImgUrl = user ? `${USERS_IMAGES_URL}${user.img_url}` : '';
 
-  return (
-    <React.Fragment>
-      <AppBar color="primary" position="sticky" elevation={0}>
-        <Toolbar>
-          <Grid container spacing={1} alignItems="center">
-            <Hidden smUp>
-              <Grid item>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={onDrawerToggle}
-                  className={classes.menuButton}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </Grid>
-            </Hidden>
-            <Grid item xs />
-            <Grid item>
-              <Link className={classes.link} href="#" variant="body2">
-                Go to docs
-              </Link>
-            </Grid>
-            <Grid item>
-              <Tooltip title="Alerts • No alters">
-                <IconButton color="inherit">
-                  <NotificationsIcon />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-            <Grid item>
-              {user.name}
-              <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                <Avatar src={userImgUrl} alt="My Avatar" />
-              </IconButton>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-      <AppBar
-        component="div"
-        className={classes.secondaryBar}
-        color="primary"
-        position="static"
-        elevation={0}
-      >
-        <Toolbar>
-          <Grid container alignItems="center" spacing={1}>
-            <Grid item xs>
-              <Typography color="inherit" variant="h5" component="h1">
-                Authentication
-              </Typography>
-            </Grid>
-            {/*             <Grid item>
+    return (
+        <React.Fragment>
+            <AppBar color="primary" position="sticky" elevation={0}>
+                <Toolbar>
+                    <Grid container spacing={1} alignItems="center">
+                        <Hidden smUp>
+                            <Grid item>
+                                <IconButton color="inherit" aria-label="open drawer" onClick={onDrawerToggle} className={classes.menuButton}>
+                                    <MenuIcon />
+                                </IconButton>
+                            </Grid>
+                        </Hidden>
+                        <Grid item xs />
+                        <Grid item>
+                            <Link className={classes.link} href="#" variant="body2">
+                                Go to docs
+                            </Link>
+                        </Grid>
+                        <Grid item>
+                            <Tooltip title="Alerts • No alters">
+                                <IconButton color="inherit">
+                                    <NotificationsIcon />
+                                </IconButton>
+                            </Tooltip>
+                        </Grid>
+                        <Grid item>
+                            {user ? user.name : ''}
+                            <IconButton color="inherit" className={classes.iconButtonAvatar}>
+                                <Avatar src={userImgUrl} alt="My Avatar" />
+                            </IconButton>
+                        </Grid>
+                    </Grid>
+                </Toolbar>
+            </AppBar>
+            <AppBar component="div" className={classes.secondaryBar} color="primary" position="static" elevation={0}>
+                <Toolbar>
+                    <Grid container alignItems="center" spacing={1}>
+                        <Grid item xs>
+                            <Typography color="inherit" variant="h5" component="h1">
+                                Authentication
+                            </Typography>
+                        </Grid>
+                        {/*             <Grid item>
               <Button
                 className={classes.button}
                 variant="outlined"
@@ -116,10 +105,10 @@ function Header(props) {
                 </IconButton>
               </Tooltip>
             </Grid> */}
-          </Grid>
-        </Toolbar>
-      </AppBar>
-      {/*       <AppBar
+                    </Grid>
+                </Toolbar>
+            </AppBar>
+            {/*       <AppBar
         component="div"
         className={classes.secondaryBar}
         color="primary"
@@ -133,13 +122,13 @@ function Header(props) {
           <Tab textColor="inherit" label="Usage" />
         </Tabs>
       </AppBar> */}
-    </React.Fragment>
-  );
+        </React.Fragment>
+    );
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired,
-  onDrawerToggle: PropTypes.func.isRequired
+    classes: PropTypes.object.isRequired,
+    onDrawerToggle: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(Header);
