@@ -31,8 +31,19 @@ const rowsPerPage = prefix => (state = 10, action) => {
     }
 };
 
+const loadingReducer = prefix => (state = false, action) => {
+    const { type, payload } = action;
+    switch (type) {
+        case types.SET_LOADING(prefix):
+            return payload;
+        default:
+            return state;
+    }
+};
+
 export default prefix =>
     combineReducers({
         data: dataReducer(prefix),
-        page: pageReducer(prefix)
+        page: pageReducer(prefix),
+        loading: loadingReducer(prefix)
     });
