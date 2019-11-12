@@ -10,7 +10,13 @@ const setPage = prefix => page => ({
     payload: page
 });
 
+const setLoading = prefix => loading => ({
+    type: types.SET_LOADING(prefix),
+    payload: loading
+});
+
 export default {
+    setLoading,
     setData,
     setPage
 };

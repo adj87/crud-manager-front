@@ -1,7 +1,17 @@
 import actions from './actions';
-import { generalFetchOperation } from '../../../generalUtils';
 
-export const fetchData = (api, prefix) => generalFetchOperation(() => api(), actions.setData(prefix))();
+export const fetchData = (api, prefix) => dispatch => {
+    dispatch(actions.setLoading(prefix)(true));
+    api()
+        .then(res => {
+            dispatch(actions.setData(prefix)(res.data));
+            dispatch(actions.setLoading(prefix)(false));
+        })
+        .catch(err => {
+            dispatch(actions.setLoading(prefix)(false));
+            dispatch({ type: 'error', payload: true });
+        });
+};
 
 export const resetDataTable = prefix => dispatch => dispatch(actions.setData(prefix)([]));
 
