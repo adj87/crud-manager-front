@@ -15,13 +15,35 @@ class ExampleContainer extends React.Component {
     render() {
         const columns = [
             {
+                name: 'id',
+                selector: 'id',
+                sortable: true
+            },
+            {
                 name: 'Nombre',
                 selector: 'nombre',
                 sortable: true
             },
+
             {
-                name: 'id',
-                selector: 'id',
+                name: 'Cif',
+                selector: 'cif',
+                sortable: true
+            },
+            {
+                name: 'Poblacion',
+                selector: 'poblacion',
+                sortable: true
+            },
+            {
+                name: 'Provincia',
+                selector: 'provincia',
+                sortable: true
+            },
+
+            {
+                name: 'Teléfono',
+                selector: 'telefono',
                 sortable: true
             }
         ];

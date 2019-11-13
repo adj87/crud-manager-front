@@ -12,7 +12,7 @@ const mapDispatchToProps = { ...operations };
 class Table extends React.Component {
     componentDidMount() {
         const rowHeight = 47; //px
-        const spaceLeft = window.innerHeight - 390;
+        const spaceLeft = window.innerHeight - 380;
         const rowsPerPage = Math.floor(spaceLeft / rowHeight);
         this.props.setRowsPerPage(this.props.prefix, rowsPerPage);
     }
@@ -26,6 +26,7 @@ class Table extends React.Component {
     componentWillUnmount() {
         const { prefix } = this.props;
         this.props.resetDataTable(prefix);
+        this.props.setRowsPerPage(prefix, null);
     }
 
     render() {
