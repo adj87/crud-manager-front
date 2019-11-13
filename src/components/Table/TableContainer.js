@@ -11,10 +11,18 @@ const mapDispatchToProps = { ...operations };
 
 class Table extends React.Component {
     componentDidMount() {
-        const { prefix, api } = this.props;
-        this.props.fetchData(api, prefix);
+        const rowHeight = 47; //px
+        const spaceLeft = window.innerHeight - 390;
+        const rowsPerPage = Math.floor(spaceLeft / rowHeight);
+        this.props.setRowsPerPage(this.props.prefix, rowsPerPage);
     }
 
+    componentDidUpdate(prevPos) {
+        const { prefix, api, fetchData, paginationPerPage } = this.props;
+        if (paginationPerPage !== prevPos.paginationPerPage) {
+            fetchData(api, prefix);
+        }
+    }
     componentWillUnmount() {
         const { prefix } = this.props;
         this.props.resetDataTable(prefix);
@@ -22,7 +30,7 @@ class Table extends React.Component {
 
     render() {
         const { prefix, api, ...datatableProps } = this.props;
-        return <DataTable {...datatableProps}></DataTable>;
+        return <>{this.props.paginationPerPage && <DataTable {...datatableProps}></DataTable>}</>;
     }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Table));

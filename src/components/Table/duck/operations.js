@@ -1,6 +1,6 @@
 import actions from './actions';
 
-export const fetchData = (api, prefix) => dispatch => {
+const fetchData = (api, prefix) => dispatch => {
     dispatch(actions.setLoading(prefix)(true));
     api()
         .then(res => {
@@ -13,9 +13,11 @@ export const fetchData = (api, prefix) => dispatch => {
         });
 };
 
-export const resetDataTable = prefix => dispatch => dispatch(actions.setData(prefix)([]));
+const resetDataTable = prefix => dispatch => dispatch(actions.setData(prefix)([]));
+const setRowsPerPage = (prefix, rowsPerPage) => dispatch => dispatch(actions.setRowsPerPage(prefix)(rowsPerPage));
 
 export default {
     fetchData,
-    resetDataTable
+    resetDataTable,
+    setRowsPerPage
 };

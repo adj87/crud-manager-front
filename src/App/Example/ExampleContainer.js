@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { operations } from './duck';
-import { withRouter } from 'react-router-dom';
 import api from './duck/api';
 import Table from '../../components/Table/TableContainer';
 import { SECTION_EXAMPLE } from './duck/types';
@@ -26,11 +25,21 @@ class ExampleContainer extends React.Component {
                 sortable: true
             }
         ];
-        const { data, loading } = this.props.table;
-        return <Table prefix={SECTION_EXAMPLE} api={api.fetchDataExample} data={data} columns={columns} title={'Example'} pagination loading progressPending={loading} highlightOnHover />;
+        const { data, loading, paginationPerPage } = this.props.table;
+        return (
+            <Table
+                prefix={SECTION_EXAMPLE}
+                api={api.fetchDataExample}
+                data={data}
+                columns={columns}
+                title={'Example'}
+                pagination
+                loading
+                progressPending={loading}
+                highlightOnHover
+                paginationPerPage={paginationPerPage}
+            />
+        );
     }
 }
-export default connect(
-    mapStateToProps,
-    null
-)(ExampleContainer);
+export default connect(mapStateToProps, null)(ExampleContainer);

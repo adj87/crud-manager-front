@@ -21,7 +21,7 @@ const pageReducer = prefix => (state = 1, action) => {
     }
 };
 
-const rowsPerPage = prefix => (state = 10, action) => {
+const rowsPerPageReducer = prefix => (state = null, action) => {
     const { type, payload } = action;
     switch (type) {
         case types.SET_ROWS_PER_PAGE(prefix):
@@ -45,5 +45,6 @@ export default prefix =>
     combineReducers({
         data: dataReducer(prefix),
         page: pageReducer(prefix),
-        loading: loadingReducer(prefix)
+        loading: loadingReducer(prefix),
+        paginationPerPage: rowsPerPageReducer(prefix)
     });

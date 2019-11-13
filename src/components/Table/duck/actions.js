@@ -15,7 +15,13 @@ const setLoading = prefix => loading => ({
     payload: loading
 });
 
+const setRowsPerPage = prefix => loading => ({
+    type: types.SET_ROWS_PER_PAGE(prefix),
+    payload: loading
+});
+
 export default {
+    setRowsPerPage,
     setLoading,
     setData,
     setPage
